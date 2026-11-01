@@ -7,7 +7,7 @@ Hugging Face and served through a Streamlit web app.
 | | Link |
 |---|---|
 | Live app | `https://YOUR-APP-NAME.streamlit.app` |
-| Fine-tuned model | `https://huggingface.co/YOUR_HF_USERNAME/fruit-freshness-convnext` |
+| Fine-tuned model | `https://huggingface.co/hafeezaismail/fruit-freshness-convnext` |
 | Base model | [facebook/convnext-tiny-224](https://huggingface.co/facebook/convnext-tiny-224) |
 | Dataset | [Project-AgML/fresh_rotten_fruit_classification](https://huggingface.co/datasets/Project-AgML/fresh_rotten_fruit_classification) |
 
@@ -31,8 +31,8 @@ label (for example `fresh_apple`), then split 70% train / 15% validation / 15% t
 ## Results
 | Metric (test set) | Value |
 |---|---|
-| Accuracy | `TODO` |
-| Macro F1 | `TODO` |
+| Accuracy | 0.9917 (476 of 480 test images correct) |
+| Macro F1 | 0.9916 |
 
 Confusion matrix: see `confusion_matrix.png` on the model page.
 
@@ -51,13 +51,13 @@ Confusion matrix: see `confusion_matrix.png` on the model page.
 
 ## Run locally
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/fruit-freshness-detector.git
-cd fruit-freshness-detector
+git clone https://github.com/hafeezaismail/Project.git
+cd Project
 python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 streamlit run app.py
 ```
-Set your own model with `HF_MODEL_ID=your-username/fruit-freshness-convnext streamlit run app.py`,
+Set your own model with `HF_MODEL_ID=hafeezaismail/fruit-freshness-convnext streamlit run app.py`,
 or edit `DEFAULT_MODEL_ID` in `app.py`.
 
 ## Retrain the model
