@@ -22,17 +22,17 @@ label (for example `fresh_apple`), then split 70% train / 15% validation / 15% t
 
 ## Method
 1. Explore the data (class balance, image sizes, sample images).
-2. Resize and normalise images; augment training data (random crop, flip, colour jitter).
+2. Resize and normalise images; augment training data (random crop, flip, rotation, colour jitter, blur, random erasing).
 3. Replace the 1000-class ImageNet head of `facebook/convnext-tiny-224` with a 16-class head.
-4. Fine-tune for 6 epochs with AdamW (lr 5e-5, batch size 16, mixed precision) using Hugging Face `Trainer`.
+4. Fine-tune for 8 epochs with AdamW (lr 5e-5, batch size 16, mixed precision, label smoothing 0.1) using Hugging Face `Trainer`.
 5. Keep the best checkpoint by validation accuracy and evaluate on the untouched test set.
 6. Push model and processor to the Hugging Face Hub and load them in the app.
 
 ## Results
 | Metric (test set) | Value |
 |---|---|
-| Accuracy | 0.9917 (476 of 480 test images correct) |
-| Macro F1 | 0.9916 |
+| Accuracy | 0.9938 (477 of 480 test images correct) |
+| Macro F1 | 0.9937 |
 
 Confusion matrix: see `confusion_matrix.png` on the model page.
 
